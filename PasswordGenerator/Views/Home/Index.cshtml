@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Password Generator";
+}
+
+<div class="container">
+    <h1>Password Generator</h1>
+
+    @using (Html.BeginForm())
+    {
+        <form>
+            <label>Password Length:</label>
+            @Html.TextBox("length", 10, new { type = "number", min = "8", max = "64" })
+
+            <button type="submit">Generate Password</button>
+        </form>
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.Password))
+    {
+        <h2>Your new password:</h2>
+        <p>@ViewBag.Password</p>
+    }
+</div>
